@@ -2,7 +2,7 @@
 
 This is a Mockup page utilizing React in Google IDX and Finnkino's API from [Finnkino XML](https://www.finnkino.fi/xml/) to show its theaters and different movies available. Work in progress. For the best experience, please use mobile view in developer tools since this is planned and developed only for that for the time being.
 
-Link to Demo: [https://finnkinomockup.netlify.app/](https://finnkino-mockup.netlify.app/)
+Link to Demo: [https://finnkinomockup.netlify.app/](https://finnkinomockup.netlify.app/)
 
 ## Current  Features
 - Able to choose from dropdown menus the theater, date, and the movie in Finnkino's current selection, all by fetching them through API.
