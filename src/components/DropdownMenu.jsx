@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { UilAngleDoubleRight } from '@iconscout/react-unicons'
-import axios from "axios";
+import axios from "axios"
 
 
 export default function DropdownMenu() {
@@ -13,34 +13,34 @@ export default function DropdownMenu() {
     axios.get('https://www.finnkino.fi/xml/TheatreAreas/')
      .then(response => {
         const data = new window.DOMParser().parseFromString(response.data, 'text/xml');
-        const theatreElements = data.querySelectorAll('TheatreArea');
+        const theatreElements = data.querySelectorAll('TheatreArea')
         const theatreOptions = Array.from(theatreElements).map(theatre => ({
           id: theatre.querySelector('ID')?.textContent || '',
           name: theatre.querySelector('Name')?.textContent || ''
         }));
-        setTheatres(theatreOptions);
+        setTheatres(theatreOptions)
       })
-     .catch(error => console.error('Error fetching theatre data:', error));
+     .catch(error => console.error('Error fetching theatre data:', error))
 
 
     // Fetch available dates from Finnkino API
     axios.get('https://www.finnkino.fi/xml/ScheduleDates/')
      .then(response => {
-        const data = new window.DOMParser().parseFromString(response.data, 'text/xml');
-        const dateElements = data.querySelectorAll('dateTime');
+        const data = new window.DOMParser().parseFromString(response.data, 'text/xml')
+        const dateElements = data.querySelectorAll('dateTime')
         const dateOptions = Array.from(dateElements).map(date => {
-          const dateObj = new Date(date.textContent);
-          const today = new Date();
-          const tomorrow = new Date();
-          tomorrow.setDate(today.getDate() + 1);
+          const dateObj = new Date(date.textContent)
+          const today = new Date()
+          const tomorrow = new Date()
+          tomorrow.setDate(today.getDate() + 1)
           let formattedDate;
           if (dateObj.toDateString() === today.toDateString()) {
-            formattedDate = `Tänään, ${dateObj.getDate()}.${dateObj.getMonth() + 1}.${dateObj.getFullYear()}`;
+            formattedDate = `Tänään, ${dateObj.getDate()}.${dateObj.getMonth() + 1}.${dateObj.getFullYear()}`
           } else if (dateObj.toDateString() === tomorrow.toDateString()) {
-            formattedDate = `Huomenna, ${dateObj.getDate()}.${dateObj.getMonth() + 1}.${dateObj.getFullYear()}`;
+            formattedDate = `Huomenna, ${dateObj.getDate()}.${dateObj.getMonth() + 1}.${dateObj.getFullYear()}`
           } else {
-            const dayOfWeek = dateObj.toLocaleDateString('fi', { weekday: 'short' });
-            formattedDate = `${dayOfWeek.charAt(0).toUpperCase()}${dayOfWeek.slice(1).toLowerCase()}, ${dateObj.getDate()}.${dateObj.getMonth() + 1}.${dateObj.getFullYear()}`;
+            const dayOfWeek = dateObj.toLocaleDateString('fi', { weekday: 'short' })
+            formattedDate = `${dayOfWeek.charAt(0).toUpperCase()}${dayOfWeek.slice(1).toLowerCase()}, ${dateObj.getDate()}.${dateObj.getMonth() + 1}.${dateObj.getFullYear()}`
           }
           return {
             value: date.textContent.split('T')[0],
