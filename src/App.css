@@ -1,0 +1,109 @@
+h3 {
+  color: #FCCE17;
+  margin-top: 85px;
+  margin-left: 8px;
+  font-size: 16px;
+}
+
+.lang-text {
+  color: #E4E1DE;
+  font-size: 12px
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: #1A1C1D;
+}
+
+.nav-left-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-right-icons {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.dropdown-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 25px 13px;
+}
+
+select {
+  width: 174px;
+  height: 40px;
+  background-color: #181A1B;
+  border: none;
+  color: #E4E1DE;
+  cursor: pointer
+}
+
+select:hover {
+  background-color: #1A1C1E;
+}
+
+button {
+  width: 174px;
+  height: 40px;
+  background-color: #CAA200;
+  color:#E4E1DE;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #DAA600;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.cards {
+  display: flex;
+  gap: 24px;
+  margin: 10px 8px;
+  border-radius: 0;
+}
+
+.sarjalippu-img {
+  margin: 0 auto;
+  display: block;
+}
+
+.lahjakortti-img {
+  margin: 40px auto;
+  display: block;
+}
+.cards {
+  display: flex;
+  gap: 24px;
+  margin: 10px 8px;
+  border-radius: 0;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for mobile */
+@media (max-width: 767px) {
+ .cards::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.card-item {
+  flex-shrink: 0;
+  width: 132px;
+  height: 198px;
+  border-radius: 0;
+}
